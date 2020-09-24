@@ -14,7 +14,8 @@ firebase.initializeApp({
 // Initialize Firebase
 
 let db = firebase.firestore();
-firebase.analytics();
+// firebase.analytics();
+// firebase.analytics
 
 export default {
   firebase,
