@@ -12,7 +12,6 @@ const Home = () => {
   const [login, setLogin] = useState('');
 
   const userContext = useContext(UserContext);
-
   const { username, setUsername, setHost } = userContext;
 
   const handleSubmit = () => {
@@ -54,21 +53,36 @@ const Home = () => {
   }
 
   return (
-    <div>
-      Join a room
-      <input
-        type='text'
-        placeholder='Username'
-        onChange={(e) => setLogin(e.target.value)}
-        value={login}
-      />
-      <input
-        onChange={(e) => setRoomId(e.target.value)}
-        type='text'
-        placeholder='Enter a room ID, leave empty to create a room'
-        value={roomId}
-      />
-      <button onClick={handleSubmit} disabled={!login}>
+    <div className='home-container container'>
+      <h1>Join a room!</h1>
+      <div className='form-group'>
+        <input
+          id='username'
+          className='text-input'
+          type='text'
+          placeholder='Username'
+          onChange={(e) => setLogin(e.target.value)}
+          value={login}
+        />
+        <label className='meta' htmlFor='username'>
+          The username everyone will see you as
+        </label>
+      </div>
+      <div className='form-group'>
+        <input
+          id='roomId'
+          className='text-input'
+          onChange={(e) => setRoomId(e.target.value)}
+          type='text'
+          placeholder='RoomId'
+          value={roomId}
+        />
+        <label className='meta' htmlFor='roomId'>
+          Leave empty to create a room
+        </label>
+      </div>
+
+      <button onClick={handleSubmit} disabled={!login} className='btn'>
         Enter
       </button>
     </div>

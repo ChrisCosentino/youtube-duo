@@ -10,7 +10,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        userContext.username !== '' ? (
+        userContext.username !== '' ||
+        localStorage.getItem('username') !== '' ? (
           <Component {...props} />
         ) : (
           <Redirect to='/' />
