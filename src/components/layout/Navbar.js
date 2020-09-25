@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <NavLink to='/' className='logo'>
-        <h1>YT-Duet</h1>
+        <h1>YT Cage</h1>
       </NavLink>
     </nav>
   );
