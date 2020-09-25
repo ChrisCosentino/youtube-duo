@@ -95,7 +95,6 @@ const Room = ({ match }) => {
 
   // Remove the currently playing element in the queue
   const removeFromQueue = () => {
-    console.log('ended');
     const arrayRemove = firebase.firebase.firestore.FieldValue.arrayRemove;
     firebase.db
       .collection('rooms')
