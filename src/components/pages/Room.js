@@ -9,15 +9,13 @@ import VideoQueue from '../layout/VideoQueue';
 
 const Room = ({ match }) => {
   const userContext = useContext(UserContext);
-  const { isHost, username } = userContext;
+  const { isHost } = userContext;
 
   const [roomState, setRoomState] = useState({
     users: [],
     queue: [],
     videoId: '',
   });
-
-  // const roomRef = useRef(null);
 
   const [url, setUrl] = useState('');
 
