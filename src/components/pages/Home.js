@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import firebase from '../../firebase/index';
 import shortid from 'shortid';
 import { Redirect } from 'react-router-dom';
@@ -12,6 +12,10 @@ const Home = () => {
 
   const userContext = useContext(UserContext);
   const { setUsername, setHost } = userContext;
+
+  useEffect(() => {
+    setUsername('');
+  }, []);
 
   const handleSubmit = () => {
     setUsername(login);
