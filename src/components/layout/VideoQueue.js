@@ -4,7 +4,6 @@ const VideoQueue = ({ queue }) => {
   return (
     <div className='queue-container'>
       <h1 className='header'>Queue</h1>
-
       {!Array.isArray(queue) || !queue.length ? (
         <div>Queue is empty</div>
       ) : (

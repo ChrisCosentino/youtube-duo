@@ -6,17 +6,15 @@ import { Redirect } from 'react-router-dom';
 import UserContext from '../../context/user/userContext';
 
 const Home = () => {
-  // const [username, setUsername] = useState('');
   const [roomId, setRoomId] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [login, setLogin] = useState('');
 
   const userContext = useContext(UserContext);
-  const { username, setUsername, setHost } = userContext;
+  const { setUsername, setHost } = userContext;
 
   const handleSubmit = () => {
     setUsername(login);
-    console.log(username);
     if (roomId !== '') {
       // Join a room since it already has a value
       const arrayUnion = firebase.firebase.firestore.FieldValue.arrayUnion;

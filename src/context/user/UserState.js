@@ -14,7 +14,6 @@ const UserState = (props) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   const setUsername = (u) => {
-    console.log(u);
     dispatch({
       type: SET_USERNAME,
       payload: u,

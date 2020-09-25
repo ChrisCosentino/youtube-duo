@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext, useRef } from 'react';
-// import { Beforeunload } from 'react-beforeunload';
+import React, { useEffect, useState, useContext } from 'react';
 import firebase from '../../firebase/index';
 import UserContext from '../../context/user/userContext';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -10,7 +9,7 @@ import VideoQueue from '../layout/VideoQueue';
 
 const Room = ({ match }) => {
   const userContext = useContext(UserContext);
-  const { username, isHost } = userContext;
+  const { isHost, username } = userContext;
 
   const [roomState, setRoomState] = useState({
     users: [],
@@ -18,19 +17,14 @@ const Room = ({ match }) => {
     videoId: '',
   });
 
-  const roomRef = useRef(null);
+  // const roomRef = useRef(null);
 
   const [url, setUrl] = useState('');
-  console.log(username);
 
   const roomId = match.params.id;
 
-  const unload = (e) => {
-    alert('bye');
-  };
-
   useEffect(() => {
-    window.addEventListener('beforeunload', unload);
+    // window.addEventListener('beforeunload', unload);
     //listen for realtime changes to the room
     firebase.db
       .collection('rooms')
@@ -72,8 +66,6 @@ const Room = ({ match }) => {
 
   // Util func parse the video id out of the yt url
   const parseVideoId = () => {
-    // let vidId =
-    console.log(url);
     let videoId = url.split('v=')[1];
     let ampersandPosition = videoId.indexOf('&');
     if (ampersandPosition !== -1) {
@@ -169,14 +161,13 @@ const Room = ({ match }) => {
   //   console.log('copied');
   // };
 
+  console.log(username);
+
   return (
     <div className='room-container container'>
       <h1>Current Host: {roomState.users[0]}</h1>
       <div>
-        Room Code:{' '}
-        <span ref={roomRef} style={{ fontWeight: '800' }}>
-          {roomId}
-        </span>{' '}
+        Room Code: <span style={{ fontWeight: '800' }}>{roomId}</span>{' '}
         <CopyToClipboard text={roomId}>
           <button className='btn'>Copy</button>
         </CopyToClipboard>

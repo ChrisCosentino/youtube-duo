@@ -3,7 +3,6 @@ import { SET_USERNAME, SET_HOST } from '../types';
 export default (state, action) => {
   switch (action.type) {
     case SET_USERNAME:
-      console.log(action.payload);
       return {
         ...state,
         username: action.payload,
