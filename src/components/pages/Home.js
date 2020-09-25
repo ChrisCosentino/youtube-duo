@@ -15,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     setUsername('');
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = () => {
