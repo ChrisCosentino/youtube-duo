@@ -161,8 +161,6 @@ const Room = ({ match }) => {
   //   console.log('copied');
   // };
 
-  console.log(username);
-
   return (
     <div className='room-container container'>
       <h1>Current Host: {roomState.users[0]}</h1>
